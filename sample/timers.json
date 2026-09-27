@@ -1,0 +1,14 @@
+{
+  "budget": 1,
+  "task_error_code": "E_DUPLICATE_TASK",
+  "none_error_code": "E_NO_TASK",
+  "event_error_code": "E_BAD_EVENT",
+  "state": { "tasks": {}, "cancelled": [], "fired": [], "overdue": [], "applied": [] },
+  "events": [
+    { "id": 1, "kind": "schedule", "name": "a", "due": 5 },
+    { "id": 2, "kind": "schedule", "name": "b", "due": 3 },
+    { "id": 3, "kind": "advance", "now": 6 },
+    { "id": 4, "kind": "schedule", "name": "c", "due": 8 },
+    { "id": 5, "kind": "advance", "now": 10 }
+  ]
+}
