@@ -1,8 +1,13 @@
-// timers.js：到期判定与挑账（基线：一律说没到期、给空表）
+// timers.js：到期判定与挑账
 export function isDue(task, now) {
-  return false;
+  if (!Array.isArray(task) || task.length < 2) return false;
+  if (!Number.isFinite(Number(task[1])) || !Number.isFinite(Number(now))) return false;
+  return Number(task[1]) <= Number(now);
 }
 
 export function pickDue(tasks, now) {
-  return [];
+  const registry = tasks || {};
+  return Object.keys(registry)
+    .filter((name) => isDue([name, registry[name]], now))
+    .sort();
 }
